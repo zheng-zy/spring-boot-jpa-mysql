@@ -2,6 +2,7 @@
 http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html
 
 ## 配置pom
+```
 <dependency>
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
@@ -11,8 +12,9 @@ http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
-
+```
 ## springboot使用jpa配置mysql数据库
+```
 # mysql
 spring.datasource.url=jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&useSSL=false
 spring.datasource.username=root
@@ -28,8 +30,7 @@ spring.jpa.hibernate.ddl-auto = update
 spring.jpa.hibernate.naming.strategy = org.hibernate.cfg.ImprovedNamingStrategy
 # stripped before adding them to the entity manager)
 spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
-
-
+```
 
 
 
