@@ -1,8 +1,13 @@
 package com.demo.me.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 用户类
@@ -10,6 +15,9 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "tbl_users")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class User implements Serializable {
     private static final long serialVersionUID = -5451740152235826540L;
     @Id
@@ -21,43 +29,15 @@ public class User implements Serializable {
     @NotNull
     @Column(length = 20)
     private String lastName;
+    @NotNull
+    @Column
+    private Date updateTime;
 
-    public User() {
-
-    }
 
     public User(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public User(Long id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 }

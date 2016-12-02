@@ -47,4 +47,10 @@ public class UserController {
         return userDao.findAll(pageable);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/findAllCondition", method = RequestMethod.POST)
+    public Page<User> findAll(Pageable pageable, @RequestBody Map<String, Object> params) {
+        return userService.findAll(pageable, params);
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.demo.me.dao;
 
 import com.demo.me.entity.User;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import javax.transaction.Transactional;
@@ -10,6 +11,6 @@ import javax.transaction.Transactional;
  * Created by zhengzy on 2016/11/8.
  */
 @Transactional
-public interface UserDao extends PagingAndSortingRepository<User, Long> {
+public interface UserDao extends PagingAndSortingRepository<User, Long>, JpaSpecificationExecutor {
     User findById(Long id);
 }
