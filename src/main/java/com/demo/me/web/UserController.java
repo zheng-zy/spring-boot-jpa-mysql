@@ -1,7 +1,7 @@
 package com.demo.me.web;
 
 import com.demo.me.common.Result;
-import com.demo.me.dao.UserDao;
+import com.demo.me.dao.UserRepository;
 import com.demo.me.entity.User;
 import com.demo.me.service.UserService;
 import org.springframework.data.domain.Page;
@@ -23,7 +23,7 @@ public class UserController {
     private UserService userService;
 
     @Resource
-    private UserDao userDao;
+    private UserRepository userRepository;
 
     @ResponseBody
     @RequestMapping(value = "/findById", method = RequestMethod.POST)
@@ -32,7 +32,7 @@ public class UserController {
         User user = userService.findByid(id);
         if (null == user) {
             user = new User("auto", "create");
-            userDao.save(user);
+            userRepository.save(user);
         }
         return new Result(200, "ok", user);
     }
@@ -44,7 +44,7 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public Page<User> findAll(Pageable pageable) {
-        return userDao.findAll(pageable);
+        return userRepository.findAll(pageable);
     }
 
     @ResponseBody
