@@ -7,6 +7,7 @@ package com.demo.me.common;
  */
 public class Result {
 
+    public static final Result SUCCESS = new Result(200, "ok", null);
     private int code;
     private String msg;
     private Object data;
